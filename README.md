@@ -30,7 +30,7 @@ All motion code is contained in `assets/site.js` and CSS — **no animation API 
 - `store.html` — selected furniture categories with real filters and enquiry links.
 - `custom-work.html` — distinct editorial custom work page with a WhatsApp brief form.
 - `our-story.html` — genuine business offerings and local presence, without fabricated history.
-- `contact.html` — phone, WhatsApp, email, Instagram, IndiaMART, registered and operating addresses.
+- `contact.html` — phone, WhatsApp, email, Instagram, IndiaMART, operating address.
 - `privacy-policy.html`, `terms-and-conditions.html` — draft policies to verify with the business.
 - `sitemap.xml`, `robots.txt` — search-crawler configuration.
 
@@ -58,7 +58,6 @@ Automated Chromium layout and script checks were performed at 320, 360, 390, 768
 
 - **Dhanushree Timbers & Furnitures**, Kuttalam / Mayiladuthurai, Tamil Nadu, India.
 - **Operating location:** Shakul Hameed Saw Mill, Anganeyer Kovil Street, Kuttalam, Kuthalam Taluk, Mayiladuthurai District, Tamil Nadu 609801.
-- **Registered address:** 3/98B, Anna Nagar, Arayapuram Main Road, P.O. Malliyam, Kuthalam Taluk, Mayiladuthurai District, Tamil Nadu 609806.
 - **Phone & WhatsApp:** +91 91593 90999
 - **Email:** reachdhanushreetimbers@gmail.com
 - **Instagram:** https://www.instagram.com/dhanushree_timbers/

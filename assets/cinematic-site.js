@@ -13,10 +13,6 @@
   rail.setAttribute('aria-hidden', 'true');
   const fill = document.createElement('span'); fill.className = 'cine-rail-fill'; rail.appendChild(fill);
   document.body.append(rail);
-  const announce = document.createElement('span');
-  announce.className = 'cine-announce'; announce.setAttribute('aria-hidden', 'true');
-  announce.textContent = document.body.classList.contains('page-home') ? 'DH / MATERIAL & FORM' : 'DH / CRAFTED IN WOOD';
-  document.body.append(announce);
   if (!mq.matches && 'IntersectionObserver' in window) {
     const io = new IntersectionObserver(entries => {
       entries.forEach(entry => {

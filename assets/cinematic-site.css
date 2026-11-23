@@ -190,8 +190,7 @@ section h2 em {color:var(--cs-gold)}
 .cine-caption{display:block;color:var(--cs-gold);font:700 10px/1.6 var(--sans);letter-spacing:.2em;text-transform:uppercase}
 .cine-rail{position:fixed;right:0;top:0;width:3px;height:100svh;background:rgba(217,165,101,.1);pointer-events:none;z-index:500;display:none}
 .cine-rail-fill{display:block;width:100%;height:100%;transform:scaleY(0);transform-origin:top center;background:linear-gradient(180deg,#f7d19e,#93643b)}
-.cine-announce{position:fixed;bottom:26px;right:28px;z-index:150;pointer-events:none;font:700 9px/1 var(--sans);letter-spacing:.2em;color:rgba(246,216,178,.75);mix-blend-mode:normal;text-shadow:0 2px 10px #100904;display:none}
-@media(min-width:1100px){.cine-rail,.cine-announce{display:block}}
+@media(min-width:1100px){.cine-rail{display:block}}
 @media (prefers-reduced-motion:no-preference){
   .cine-motion-ready .cine-film-shutter{transform:scaleX(1);transition:transform 1.5s var(--cs-ease)}
   .cine-motion-ready .cine-film.is-cine-inview .cine-film-shutter{transform:scaleX(0)}

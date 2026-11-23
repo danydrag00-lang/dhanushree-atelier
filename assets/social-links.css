@@ -1,0 +1,12 @@
+/* Platform-link iconography for Dhanushree Timbers. Individual names remain visible and accessible. */
+.platform-link{display:inline-flex!important;align-items:center;gap:10px;max-width:100%;text-decoration:none;vertical-align:middle;white-space:normal}
+.platform-icon{width:22px;height:22px;min-width:22px;object-fit:contain;display:inline-block;vertical-align:middle;flex:none;transition:transform .24s cubic-bezier(.18,.7,.24,1),filter .24s ease}
+.platform-link:is(:hover,:focus-visible) .platform-icon{transform:translateY(-2px) scale(1.07);filter:brightness(1.1)}
+.top-enquire .pulse-dot{display:none}
+.top-enquire .platform-icon{width:18px;height:18px;min-width:18px;margin-right:4px}
+.contact-links .platform-link{gap:9px}
+.contact-links .platform-icon{width:25px;height:25px;min-width:25px}
+.footer-columns .platform-link{gap:9px}
+.footer-columns .platform-icon{width:21px;height:21px;min-width:21px}
+.platform-link:focus-visible{outline:2px solid #E5BA80;outline-offset:4px}
+@media(prefers-reduced-motion:reduce){.platform-icon{transition:none}.platform-link:is(:hover,:focus-visible) .platform-icon{transform:none}}
