@@ -68,3 +68,20 @@ Automated Chromium layout and script checks were performed at 320, 360, 390, 768
 ### Project source
 
 `redesign_build.py` generates the seven HTML pages and the sitemap. `assets/site.css` and `assets/site.js` are the art-directed styling and motion system. Run `python redesign_build.py` only after editing its page definitions. Do not run the obsolete `build.py` from version 01.
+
+## Material in Motion — Figma Sites–inspired interaction study (November 2026)
+
+An original, native CSS/JavaScript motion layer inspired by Figma Sites' publicly documented interaction patterns. This website **is not hosted in Figma Sites** and does not copy a Figma template.
+
+- The homepage opens with photographic camera drift, cinematic crossfades and controllable slides.
+- A moving timber/material typography ribbon is continuously animated and pauses on hover.
+- **Follow the grain** is a new pinned, three-chapter visual story. Scrolling actually reveals each photograph through a physical left-to-right wipe; the chapter controls jump to the corresponding scroll position, and a progress rule follows your position.
+- Photo details enter with image and label masks. Furniture tiles respond to the cursor with subtle perspective and a contextual viewing circle. The collection can be dragged as well as operated with its arrow buttons.
+- The existing store filters, quote/WhatsApp flow, navigation and business information remain intact.
+- CSS respects `prefers-reduced-motion`; motion is disabled and the story becomes a non-pinned, readable first frame. No fake 360° claims are made about photographs, and imagery remains illustrative.
+
+**Files:** `assets/figma-motion.css` and `assets/figma-motion.js`; the new visual story is semantic markup in `index.html`. All pages load the shared motion layer for consistent detailing.
+
+**Quality checks completed:** JavaScript syntax and static HTML/CSS/reference validation. Browser automation was blocked by the current execution environment, so a live visual-regression, GPU-performance or full accessibility check is **not** claimed. Verify GitHub Pages rendering on desktop and mobile before treating the site as production approved.
+
+Reference interaction patterns: https://help.figma.com/hc/en-us/articles/35895820755095-Figma-Sites-collection-Add-interactions-to-a-website
