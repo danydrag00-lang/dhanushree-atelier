@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# Add Sitemap only after your final public domain is confirmed.
