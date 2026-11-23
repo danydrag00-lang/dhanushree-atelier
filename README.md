@@ -1,73 +1,70 @@
-# Dhanushree Atelier — New Dhanushree Timbers website
+# Dhanushree Timbers & Furnitures — Cinematic Website (Design 02)
 
-**This is a completely new, independent static website project.** It is not a clone or modification of the existing `dhanusree-timbers` repository. The design is a deliberately art-directed concept: mineral ink, warm paper, editorial typographic hierarchy, joinery illustration, modest motion and genuine WebGL geometry.
+A completely new, independently authored Dhanushree Timbers website built for the separate `dhanushree-atelier` repository. The original `dhanusree-timbers` repository has not been modified.
 
-## The website
+**GitHub repo:** https://github.com/danydrag00-lang/dhanushree-atelier
 
-- `index.html` — bespoke homepage with an **interactive WebGL timber joinery study**. The 3D piece is an illustrative design concept, not a real product listing.
-- `store.html` — 18 selected furniture/woodwork categories, real category filters and WhatsApp enquiry links. This is explicitly **not the full catalogue**.
-- `custom-work.html` — drafting-style hero, process and a form that generates a WhatsApp message only when the visitor submits it.
-- `our-story.html` — grounded local business information without invented dates, achievements or workshops.
-- `contact.html` — phone, WhatsApp, email, operating location, registered address, IndiaMART and Instagram.
-- `privacy-policy.html`, `terms-and-conditions.html` — starting-point legal content to review for your actual practices.
+**Expected GitHub Pages URL:** https://danydrag00-lang.github.io/dhanushree-atelier/
 
-The site runs on GitHub Pages with no Node.js build, framework, database or API key. Open `index.html` in a browser after extracting it, or host the directory on a static server. **Internet access is required for the stock photography and Google Fonts.**
+## What changed in the second design
 
-## Put this in a brand-new GitHub repository (no coding required)
+The rejected wireframe-led design has been replaced with a warm, cinematic timber-first art direction: a photographic hero, chocolate-charcoal / parchment / brass palette, bespoke editorial serif typography, full-bleed composition, active hero controls, asymmetric product galleries and an architectural custom-work inquiry page.
 
-1. Open **https://github.com/new** and sign in to your existing account.
-2. Set the repository name to **`dhanushree-atelier`**, choose **Public**, and click **Create repository**. Do not initialise it with a README or licence.
-3. Extract the ZIP. In GitHub, choose **uploading an existing file** / **Add file → Upload files**. Upload the files and `assets` folder from *inside* the extracted `dhanushree-atelier` folder, not the ZIP itself. Click **Commit changes**.
-4. Open **Settings → Pages**. Under **Build and deployment**, choose **Deploy from a branch**. Set branch **main** and folder **/(root)**. Save.
-5. Your expected URL after Pages finishes publishing is `https://danydrag00-lang.github.io/dhanushree-atelier/`. This URL is **not live until you have created the repository, uploaded the files and enabled Pages**.
+### Real interactions and animations
 
-An alternative is to create the empty repository and send its link to ChatGPT so the connected GitHub integration can add files to that new repository.
+- **Cinematic hero**: 3-scene slideshow with timed 6.5-second image changes, crossfades, Ken Burns photography motion, scene title and progress indicator, previous / next and user-controlled pause / play.
+- **Text choreography**: split headline lines reveal on initial page load; secondary copy, CTA and kicker enter with staggered motion.
+- **Pointer-driven lighting**: restrained animated spotlight responds to pointer motion on desktop.
+- **Scroll-linked depth**: scroll bar, sticky navigation treatment and parallax photography sections powered by native `requestAnimationFrame`.
+- **Editorial product conveyor**: snap-scrolling horizontal category collection with working previous / next controls.
+- **Scroll entrance reveals**: IntersectionObserver animates meaningful copy blocks when visible.
+- **Product interactions**: hover zoom and arrow rotations, working category filtering with live result count.
+- **Buttons and mobile navigation**: subtle magnetic pointer response on desktop; accessible animated mobile menu.
+- **Accessibility**: `prefers-reduced-motion` disables decorative motion and auto-advancing slideshow. Native focus, semantic landmarks and responsive sizing.
 
-## Brand and business details
+All motion code is contained in `assets/site.js` and CSS — **no animation API keys or remote JavaScript frameworks needed**. It is actual HTML/CSS/JavaScript, not a screenshot of an animated website.
 
-- Brand: Dhanushree Timbers & Furnitures
-- Phone/WhatsApp: +91 91593 90999
-- Email: reachdhanushreetimbers@gmail.com
-- Instagram: https://instagram.com/dhanushree_timbers
-- IndiaMART: https://www.indiamart.com/dhanusree-timbers/
-- Operating location for visits: Shakul Hameed Saw Mill, Anganeyer Kovil Street, Kuttalam, Kuthalam Taluk, Mayiladuthurai District, Tamil Nadu 609801, India
-- Registered address: 3/98B, Anna Nagar, Arayapuram Main Road, P.O. Malliyam, Kuthalam Taluk, Mayiladuthurai District, Tamil Nadu 609806, India
-- Delivery: approximately 40 km locally; greater-distance charges/availability subject to discussion
+### Site pages
 
-## Design and technology
+- `index.html` — cinematic landing page, selected categories, material story and custom-work flow.
+- `store.html` — selected furniture categories with real filters and enquiry links.
+- `custom-work.html` — distinct editorial custom work page with a WhatsApp brief form.
+- `our-story.html` — genuine business offerings and local presence, without fabricated history.
+- `contact.html` — phone, WhatsApp, email, Instagram, IndiaMART, registered and operating addresses.
+- `privacy-policy.html`, `terms-and-conditions.html` — draft policies to verify with the business.
+- `sitemap.xml`, `robots.txt` — search-crawler configuration.
 
-- Bespoke responsive CSS with Instrument Serif and DM Sans (Google Fonts with system fallbacks).
-- An original typographic `D` seal and editorial visual language. This is a **new concept wordmark**, not a copy of the previous uploaded company logo. Replace if you prefer your existing approved icon.
-- Real WebGL vertex and fragment shaders, custom 3D timber portal geometry, wood-inspired finish studies, pointer rotation, responsive resolution, pause offscreen and low-motion fallback. No external 3D library required.
-- Semantic HTML, keyboard focus, reduced-motion rules, mobile navigation, alt text, product filtering, and local business structured data.
-- No fabricated prices, reviews, certifications, founding date, product inventory or workshop photos.
+### Images and representations
 
-## Photos and attribution
+- `assets/hero-room.webp` — concept image generated specifically as an **illustrative furniture scene**. It is not a photograph of actual Dhanushree work.
+- `assets/hero-bed.webp`, `assets/hero-doors.webp` and local category backups — illustrative preview images; the local backups were cropped from a conceptual design illustration.
+- Other item photos load from Pexels links and are **reference inspiration only**. The site includes a practical local fallback or neutral colour panel when the external photo host is unavailable.
+- No real rotating 360-degree photograph/model or working WebGL furniture viewer is claimed in this version. The animated scene moves a photograph; it does **not** represent a live 3D reconstruction of a manufactured Dhanushree product.
+- Product prices, materials, stock, fabrication details and timelines must be verified through an enquiry.
 
-The site links directly to distinct photographs hosted by **Pexels**, chosen from an existing list of category-matched Pexels references. See `IMAGE-SOURCES.md` for the selected IDs and source pages. These are **illustrative stock photographs, not confirmed Dhanushree products, project photos, or facilities**. They can be replaced with genuine photos when available.
+### Run / publish
 
-Pexels licensing: https://www.pexels.com/license/ — its license permits free website/commercial use, subject to its conditions. Do not imply endorsement by individuals or brands shown in stock images. Google Fonts licensing is open-source; see fonts' upstream repositories for the applicable licence.
+The site is a **standalone static repository**, with no build process, dependencies or credentials.
 
-## Before the final production launch
+To publish on GitHub Pages: **Settings → Pages → Deploy from a branch → `main` → `/(root)` → Save.** When the Pages workflow succeeds, the website will use the URL shown above.
 
-- Check every photo renders on the public domain and that its specific photo is suitable for the category. The current sandbox could not fetch external image URLs during visual QA.
-- Replace the illustrative images with your real products, workshop and timber stock imagery where possible.
-- Review the legal pages against actual business practices with appropriate advice.
-- Add a correct canonical URL and an XML sitemap once the final public site URL is confirmed. Do not publish placeholder canonical URLs.
-- Run Lighthouse on the real domain and inspect the WebGL fallback on older phones.
-- Test the custom order WhatsApp link and delivery information on your devices.
+To preview without a live server, open `index.html`. External typography and Pexels images need Internet; the first hero, controls and baseline layout work with the bundled files.
 
-## Scope of testing
+### QA
 
-Completed: all seven documents parse, have exactly one H1 and valid internal page links; desktop/mobile static rendering at 320, 360, 390, 768, 1024 and 1440 pixels has no horizontal overflow in a headless Chromium test; store category filter and mobile menu operate; JavaScript syntax passes `node --check`.
+Automated Chromium layout and script checks were performed at 320, 360, 390, 768, 1024 and 1440 CSS pixels. All pages had no horizontal overflow at those sizes; hero next/pause controls, mobile menu, Store filters, and custom-work form controls were exercised without JavaScript page errors. The preview was tested by injecting HTML/CSS/JS in a local browser because localhost/file URL navigation was restricted. Physical-device animation smoothness and live external image availability still require production validation.
 
-Not verified: remote image availability under this environment's network restrictions, full accessibility certification, performance/Lighthouse numbers, or actual WebGL GPU performance in a physical device. The hero includes a static geometric fallback where WebGL is unavailable.
+### Business details
 
-## Files you can edit
+- **Dhanushree Timbers & Furnitures**, Kuttalam / Mayiladuthurai, Tamil Nadu, India.
+- **Operating location:** Shakul Hameed Saw Mill, Anganeyer Kovil Street, Kuttalam, Kuthalam Taluk, Mayiladuthurai District, Tamil Nadu 609801.
+- **Registered address:** 3/98B, Anna Nagar, Arayapuram Main Road, P.O. Malliyam, Kuthalam Taluk, Mayiladuthurai District, Tamil Nadu 609806.
+- **Phone & WhatsApp:** +91 91593 90999
+- **Email:** reachdhanushreetimbers@gmail.com
+- **Instagram:** https://www.instagram.com/dhanushree_timbers/
+- **IndiaMART:** https://www.indiamart.com/dhanusree-timbers/
+- **Delivery:** available locally within ~40 km; further delivery subject to charges and availability.
 
-- `assets/site.css` — all visual styling
-- `assets/site.js` — menu, filters and custom WhatsApp enquiry
-- `assets/joinery-3d.js` — original interactive WebGL study
-- `build.py` — optional source generator for HTML pages (requires Python 3; compiled HTML files are already included)
+### Project source
 
-**No change has been made to your old GitHub repository's website code.**
+`redesign_build.py` generates the seven HTML pages and the sitemap. `assets/site.css` and `assets/site.js` are the art-directed styling and motion system. Run `python redesign_build.py` only after editing its page definitions. Do not run the obsolete `build.py` from version 01.
