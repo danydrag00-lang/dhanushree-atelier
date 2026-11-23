@@ -1,0 +1,184 @@
+/*
+  DHANUSHREE / MOTION STUDIES — Edition 04
+  Original interaction design informed by Figma for Motion's categories:
+  spotlight, spatial gallery, magnetic control, scroll story, page handoff.
+  These are bespoke timber-focused implementations, not copied Figma assets.
+*/
+:root { --ms-paper:#F7ECDB; --ms-gold:#E1B981; --ms-ink:#160C07; --ms-line:rgba(237,191,132,.37); --ms-ease:cubic-bezier(.22,1,.36,1); }
+
+/* In supporting browsers, a real browser-owned handoff connects static pages
+   without hijacking anchors, history, new tabs, or the back button. */
+@view-transition { navigation: auto; }
+@media (prefers-reduced-motion:no-preference) {
+  ::view-transition-old(root){animation:ms-route-old .34s cubic-bezier(.3,0,.4,1) both}
+  ::view-transition-new(root){animation:ms-route-new .7s var(--ms-ease) both}
+  @keyframes ms-route-old{to{opacity:.62;filter:brightness(.75);transform:translate3d(0,-16px,0)}}
+  @keyframes ms-route-new{from{opacity:.78;clip-path:inset(0 0 100% 0);transform:translate3d(0,35px,0)}to{opacity:1;clip-path:inset(0);transform:none}}
+}
+
+/* All section headings are announced once, then revealed word by word.
+   Inner wrappers preserve the original <h2>, em, br, and screenreader content. */
+.ms-word { display:inline-block; vertical-align:baseline; overflow:clip; padding-block-end:.12em; margin-block-end:-.12em; }
+.ms-word-inner { display:inline-block; }
+@media (prefers-reduced-motion:no-preference) {
+  html.ms-motion .ms-kinetic .ms-word-inner { transform:translate3d(0,112%,0); opacity:.23; filter:blur(4px); transition:transform .95s var(--ms-ease),opacity .82s ease,filter .72s ease; transition-delay:calc(var(--ms-word-order,0) * 35ms); will-change:transform; }
+  html.ms-motion .ms-kinetic.ms-shown .ms-word-inner { transform:translate3d(0,0,0); opacity:1; filter:none; }
+}
+
+/* An architectural page index rather than an overlaid generically-glowing UI. */
+.ms-scene-index{position:fixed;top:50%;right:16px;transform:translateY(-50%);z-index:165;display:flex;flex-direction:column;align-items:end;gap:2px;pointer-events:none}
+.ms-scene-index::before{content:"";position:absolute;right:10px;top:15px;bottom:15px;width:1px;background:rgba(240,205,162,.28);z-index:-1}
+.ms-scene-index button{pointer-events:auto;border:0;color:#f0d7b7;display:flex;align-items:center;gap:13px;min-width:36px;min-height:43px;justify-content:flex-end;background:transparent;padding:0 6px;font:700 9px/1 var(--sans);letter-spacing:.13em;cursor:pointer}
+.ms-scene-index button .ms-index-label{opacity:0;transform:translateX(12px);white-space:nowrap;background:rgba(20,12,8,.94);padding:10px 12px;border:1px solid rgba(225,185,129,.22);transition:opacity .3s ease,transform .45s var(--ms-ease);pointer-events:none}
+.ms-scene-index button .ms-index-dot{display:block;width:9px;height:9px;border-radius:50%;border:1px solid rgba(240,206,158,.7);background:#24160e;box-shadow:0 0 0 5px rgba(21,11,6,.3);transition:background .25s,scale .4s var(--ms-ease),border-color .25s}
+.ms-scene-index button[aria-current="true"] .ms-index-dot,.ms-scene-index button:hover .ms-index-dot,.ms-scene-index button:focus-visible .ms-index-dot{background:var(--ms-gold);border-color:var(--ms-gold);scale:1.3}
+.ms-scene-index button:is(:hover,:focus-visible) .ms-index-label{opacity:1;transform:translateX(0)}
+.ms-scene-index button:focus-visible{outline:2px solid var(--ms-gold);outline-offset:1px}
+@media (max-width:1199px) {.ms-scene-index{display:none}}
+
+/* The original home slide now opens like a piece of timber veneer being drawn
+   across the frame. Photographs stay photographs: no false 360° badge. */
+@media (prefers-reduced-motion:no-preference) {
+  .cinema-hero .hero-scene { clip-path:inset(0 0 0 100%); transition:clip-path 1.3s var(--ms-ease),opacity .75s ease,transform 9s linear; }
+  .cinema-hero .hero-scene.is-current { clip-path:inset(0 0 0 0); }
+  .inside-hero { isolation:isolate; }
+  .inside-hero::before { content:"";position:absolute;inset:0;z-index:6;pointer-events:none;background:linear-gradient(105deg,#26170e,#58331e);transform-origin:right;animation:ms-intro-door 1.08s .05s var(--ms-ease) both; }
+  @keyframes ms-intro-door {from{transform:scaleX(1)}to{transform:scaleX(0)}}
+  .inside-photo {animation:none!important;transform:translate3d(0,var(--ms-photo-y,0px),0) scale(1.08);transition:transform .2s linear;will-change:transform;}
+  .contact-photo img{transform:translate3d(0,var(--ms-contact-y,0px),0) scale(1.12)!important;}
+  .cine-film-image img{transform:scale(var(--ms-film-zoom,1.05));transform-origin:center;transition:transform .2s linear;}
+}
+
+/* PRODUCT SPOTLIGHT — Store. Three distinct photographic chapters controlled
+   by actual next/previous buttons, not a fake image rotator. */
+.ms-theatre{position:relative;height:clamp(650px,94svh,1100px);min-height:640px;color:var(--ms-paper);background:#291a10;overflow:hidden;isolation:isolate}
+.ms-theatre-images,.ms-theatre-image,.ms-theatre-veil{position:absolute;inset:0}
+.ms-theatre-images{z-index:-3}
+.ms-theatre-image{background-size:cover;background-position:center;clip-path:inset(0 0 0 100%);opacity:0;transform:scale(var(--ms-theatre-zoom,1.04));transition:clip-path 1.1s var(--ms-ease),opacity .9s ease;z-index:0}
+.ms-theatre-image.is-active{clip-path:inset(0);opacity:1;z-index:2}
+.ms-theatre-image.is-exit{clip-path:inset(0);opacity:1;z-index:1}
+.ms-theatre-veil{z-index:-2;pointer-events:none;background:linear-gradient(90deg,rgba(13,8,5,.94),rgba(20,12,7,.71) 37%,rgba(22,12,8,.24) 78%),linear-gradient(0deg,rgba(12,7,4,.81),transparent 33%,rgba(15,8,4,.31))}
+.ms-theatre-brow{position:absolute;left:clamp(25px,6vw,100px);right:clamp(25px,6vw,100px);top:42px;display:flex;justify-content:space-between;gap:20px;z-index:3;border-bottom:1px solid rgba(247,215,170,.29);padding:0 0 17px;color:#e7c299;font:700 9px/1.5 var(--sans);letter-spacing:.19em}
+.ms-theatre-copy{position:absolute;left:clamp(26px,7.2vw,124px);top:49%;transform:translateY(-46%);width:min(880px,80%);z-index:4}
+.ms-theatre-number{font:700 11px/1.3 var(--sans);letter-spacing:.19em;color:#e5b87f;margin:0 0 24px;transition:opacity .22s ease,transform .4s var(--ms-ease)}
+.ms-theatre-copy h2{font:400 clamp(72px,9vw,158px)/.82 var(--serif);letter-spacing:-.05em;margin:0 0 34px;max-width:880px;transition:opacity .32s ease,transform .55s var(--ms-ease),clip-path .45s var(--ms-ease)}
+.ms-theatre-copy h2 em{color:var(--ms-gold)}
+.ms-theatre-desc{max-width:450px;font:400 clamp(13px,1.05vw,16px)/1.8 var(--sans);color:#e6d6c1;margin:0 0 35px;transition:opacity .3s ease,transform .55s var(--ms-ease)}
+.ms-theatre-copy.is-switching :is(.ms-theatre-number,.ms-theatre-desc,h2){opacity:0;transform:translateY(23px);clip-path:inset(0 0 45% 0)}
+.ms-theatre-cta{display:inline-flex;justify-content:space-between;align-items:center;gap:28px;border-bottom:1px solid var(--ms-gold);padding:0 0 12px;color:#f4d9b7;text-decoration:none;font:700 12px/1 var(--sans);letter-spacing:.05em}
+.ms-theatre-cta span{font-size:21px;transition:transform .25s var(--ms-ease)}
+.ms-theatre-cta:hover span{transform:translate(5px,-5px)}
+.ms-theatre-cta:focus-visible,.ms-theatre-controls button:focus-visible{outline:2px solid var(--ms-gold);outline-offset:4px}
+.ms-theatre-ui{position:absolute;left:clamp(26px,7.2vw,124px);right:clamp(26px,7.2vw,124px);bottom:38px;z-index:4;display:flex;align-items:center;justify-content:space-between;gap:40px;border-top:1px solid rgba(244,215,176,.26);padding-top:22px}
+.ms-theatre-caption{font:700 9px/1.6 var(--sans);letter-spacing:.17em;color:#d0aa7e}
+.ms-theatre-controls{display:flex;align-items:center;gap:15px}
+.ms-theatre-controls button{width:44px;height:44px;border:1px solid rgba(242,211,172,.75);border-radius:50%;color:#f1dfc4;background:rgba(17,10,5,.28);font-size:21px;cursor:pointer;transition:background .3s,color .3s,transform .3s var(--ms-ease)}
+.ms-theatre-controls button:hover{color:#231409;background:var(--ms-gold);transform:scale(1.08)}
+.ms-theatre-track{height:2px;width:clamp(50px,8vw,120px);background:rgba(237,211,177,.36);overflow:hidden}
+.ms-theatre-track span{display:block;width:100%;height:100%;background:var(--ms-gold);transform:scaleX(.3333);transform-origin:left;transition:transform .8s var(--ms-ease)}
+.ms-theatre-count{white-space:nowrap;font:700 10px/1 var(--sans);letter-spacing:.12em;color:#dfbd93}
+.ms-theatre-count b{color:#fff}
+
+/* INTERACTIVE DESIGN STUDIES — Custom Work. A photographic concept selector,
+   not a false finish configurator or a claim about completed orders. */
+.ms-studio{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(400px,.9fr);min-height:clamp(720px,90svh,1010px);background:#25160d;color:var(--ms-paper)}
+.ms-studio-display{min-height:680px;position:relative;overflow:hidden;background:#352113}
+.ms-studio-shot{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;clip-path:inset(0 100% 0 0);transform:scale(1.085);transition:clip-path 1.15s var(--ms-ease),opacity .65s,transform 1.4s var(--ms-ease)}
+.ms-studio-shot.is-active{opacity:1;clip-path:inset(0);transform:scale(1.005)}
+.ms-studio-display::after{content:"";position:absolute;inset:32% 0 0;pointer-events:none;background:linear-gradient(0deg,rgba(17,9,5,.8),transparent)}
+.ms-studio-display-label{position:absolute;z-index:3;left:clamp(25px,5vw,80px);bottom:38px;font:700 9px/1.5 var(--sans);letter-spacing:.18em;color:#f0d0a5}
+.ms-studio-content{padding:clamp(110px,12vw,180px) clamp(30px,6vw,115px) 90px;display:flex;flex-direction:column;justify-content:center;position:relative;background:radial-gradient(circle at 96% 21%,rgba(151,87,38,.18),transparent 55%),#21140e}
+.ms-studio-content::before{content:"";position:absolute;top:0;bottom:0;left:0;width:1px;background:rgba(243,210,172,.2)}
+.ms-kicker{font:700 10px/1.5 var(--sans);letter-spacing:.19em;color:var(--ms-gold)}
+.ms-studio-content h2{font:400 clamp(67px,6vw,105px)/.87 var(--serif);letter-spacing:-.045em;margin:25px 0 25px}
+.ms-studio-content h2 em{color:var(--ms-gold)}
+.ms-studio-intro,.ms-studio-description{font:400 13px/1.9 var(--sans);color:#dfc5a9;max-width:420px}
+.ms-studio-description{margin:20px 0 27px;min-height:47px}
+.ms-studio-options{margin-top:27px;border-top:1px solid var(--ms-line)}
+.ms-studio-options button{display:grid;grid-template-columns:90px 1fr 20px;gap:12px;align-items:center;width:100%;text-align:left;color:#cfb79e;background:none;border:0;border-bottom:1px solid var(--ms-line);padding:21px 0;min-height:68px;cursor:pointer;transition:color .22s ease,padding .45s var(--ms-ease)}
+.ms-studio-options button small{font:700 9px/1.4 var(--sans);letter-spacing:.15em;color:#b68b5f}
+.ms-studio-options button span{font:400 clamp(26px,2.2vw,40px)/1 var(--serif);letter-spacing:-.01em}
+.ms-studio-options button i{font-style:normal;font-size:19px;transform:translate(-8px,8px);opacity:0;transition:transform .35s var(--ms-ease),opacity .3s}
+.ms-studio-options button:is([aria-pressed="true"],:hover,:focus-visible){color:#fff;padding-left:9px}
+.ms-studio-options button:is([aria-pressed="true"],:hover,:focus-visible) i{opacity:1;transform:none}
+.ms-studio-options button:focus-visible{outline:2px solid var(--ms-gold);outline-offset:2px}
+.ms-studio-link{display:inline-flex;width:max-content;gap:22px;align-items:center;color:#edc699;border-bottom:1px solid var(--ms-gold);padding-bottom:12px;font:700 12px/1 var(--sans);text-decoration:none}
+.ms-studio-link span{font-size:19px;transition:transform .35s var(--ms-ease)}
+.ms-studio-link:hover span{transform:translate(4px,-4px)}
+
+/* The contact page opens into three intentional actions, not decorative cards. */
+.ms-contact-routes{margin-top:clamp(22px,3vw,36px);max-width:760px;display:flex;border-top:1px solid var(--ms-line);border-bottom:1px solid var(--ms-line)}
+.ms-contact-routes a{padding:17px 16px;min-width:0;flex:1;color:#f4d5ab;display:flex;flex-direction:column;gap:7px;border-right:1px solid var(--ms-line);position:relative;transition:background .35s ease,padding .45s var(--ms-ease);text-decoration:none}
+.ms-contact-routes a:last-child{border-right:0}
+.ms-contact-routes a small{font:700 9px/1.3 var(--sans);letter-spacing:.15em;color:#c79a6a}
+.ms-contact-routes a span{font:400 clamp(19px,2vw,29px)/1.15 var(--serif)}
+.ms-contact-routes a i{position:absolute;right:11px;bottom:16px;font-style:normal;opacity:0;transform:translate(-6px,6px);transition:opacity .3s,transform .35s var(--ms-ease)}
+.ms-contact-routes a:is(:hover,:focus-visible){background:rgba(229,174,102,.16);padding-left:22px}
+.ms-contact-routes a:is(:hover,:focus-visible) i{opacity:1;transform:none}
+.ms-contact-routes a:focus-visible{outline:2px solid var(--ms-gold);outline-offset:2px}
+
+/* Original hand-drawn woodgrain: path length progressively revealed on scroll. */
+.about-statement{position:relative;overflow:hidden;isolation:isolate}
+.ms-about-grain{position:absolute;z-index:0;right:-3%;bottom:-10%;width:min(45vw,610px);height:auto;opacity:.4;pointer-events:none;stroke:#dca972;stroke-width:1.5}
+.ms-about-grain path{stroke-dasharray:1400;stroke-dashoffset:calc(1400 * (1 - var(--ms-grain-progress,0)));transition:stroke-dashoffset .12s linear}
+.about-editorial{position:relative;z-index:1}
+
+/* Image movement is tied to specific structures and gives each page visual depth. */
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  .ms-theatre{cursor:default}
+  .ms-theatre-image{background-position:calc(50% + var(--ms-pointer-x,0px)) calc(50% + var(--ms-pointer-y,0px))}
+  .ms-studio-display{cursor:crosshair}
+  .ms-studio-shot{background-position:calc(50% + var(--ms-studio-x,0px)) calc(50% + var(--ms-studio-y,0px))}
+  .product-card .product-photo img{transform:translate3d(var(--ms-card-x,0px),var(--ms-card-y,0px),0) scale(1.04);transition:transform .5s var(--ms-ease),filter .5s ease}
+  .product-card:hover .product-photo img{transform:translate3d(var(--ms-card-x,0px),var(--ms-card-y,0px),0) scale(1.13)}
+}
+
+/* Responsive design: no pinned interaction traps on touch, no offscreen chrome. */
+@media (max-width:1000px){
+  .ms-theatre-copy h2{font-size:clamp(74px,10vw,125px)}
+  .ms-studio{grid-template-columns:minmax(0,1fr) minmax(350px,1fr)}
+  .ms-studio-content{padding:85px 38px}
+  .ms-studio-content h2{font-size:clamp(58px,7vw,89px)}
+  .ms-studio-options button{grid-template-columns:76px 1fr 17px}
+}
+@media (max-width:700px){
+  .ms-theatre{height:83svh;min-height:650px}
+  .ms-theatre-brow{left:23px;right:23px;top:22px;font-size:8px}
+  .ms-theatre-brow span:last-child{display:none}
+  .ms-theatre-veil{background:linear-gradient(90deg,rgba(13,8,5,.92),rgba(20,12,7,.6) 63%,rgba(22,12,8,.25)),linear-gradient(0deg,rgba(12,7,4,.88),transparent 48%,rgba(15,8,4,.18))}
+  .ms-theatre-copy{left:24px;width:calc(100% - 48px);top:48%;transform:translateY(-44%)}
+  .ms-theatre-copy h2{font-size:clamp(64px,13.8vw,94px);margin-bottom:24px}
+  .ms-theatre-number{margin-bottom:18px;font-size:9px}
+  .ms-theatre-desc{font-size:12px;max-width:340px;margin-bottom:23px}
+  .ms-theatre-ui{left:23px;right:23px;bottom:28px;gap:12px}
+  .ms-theatre-caption{max-width:140px;font-size:7px;line-height:1.7}
+  .ms-theatre-controls{gap:8px}
+  .ms-theatre-controls button{width:37px;height:37px}
+  .ms-theatre-track{width:40px}
+  .ms-studio{display:flex;flex-direction:column}
+  .ms-studio-display{height:55svh;min-height:380px}
+  .ms-studio-content{padding:73px 24px 80px}
+  .ms-studio-content h2{font-size:clamp(61px,12.2vw,86px)}
+  .ms-studio-options button{grid-template-columns:78px 1fr 18px}
+  .ms-studio-display-label{bottom:23px;left:24px}
+  .ms-contact-routes{max-width:100%;margin-top:25px}
+  .ms-contact-routes a{padding:14px 8px;gap:7px}
+  .ms-contact-routes a small{font-size:7px}
+  .ms-contact-routes a span{font-size:21px}
+  .ms-contact-routes a i{display:none}
+  .ms-about-grain{width:76vw;opacity:.2;right:-18%}
+}
+@media (max-width:375px){
+  .ms-theatre-copy h2{font-size:59px}
+  .ms-theatre-ui{flex-direction:column;align-items:start;gap:11px}
+  .ms-studio-options button span{font-size:25px}
+  .ms-contact-routes a span{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce) {
+  ::view-transition-old(root),::view-transition-new(root){animation:none!important}
+  .ms-word-inner,.ms-theatre-image,.ms-studio-shot,.inside-photo,.ms-theatre-copy h2,.ms-theatre-desc{animation:none!important;transition:none!important;filter:none!important}
+  .ms-theatre-image,.ms-studio-shot{transform:none!important}
+  .ms-about-grain path{stroke-dashoffset:0!important}
+  .ms-theatre-image:not(.is-active),.ms-studio-shot:not(.is-active){opacity:0;clip-path:inset(0 0 0 100%)}
+  .ms-theatre-image.is-active,.ms-studio-shot.is-active{opacity:1;clip-path:inset(0)}
+}

@@ -105,3 +105,24 @@ All seven pages now use the homepage hero as the creative benchmark, without cop
 **Image accuracy:** Each full-height illustration is explicitly labelled as an illustrative reference, **not a verified Dhanushree project**. Higher resolution Pexels imagery is requested when available, with included local WebP backups. Product-specific actual photography would improve credibility further.
 
 **QA performed:** Chromium inline rendering checks for all seven pages at 390, 768 and 1440 px reported no horizontal overflow or JavaScript page errors; Store category filtering returned the expected three bedroom results. A full live-site/device/Lighthouse audit remains outstanding. The inline browser test does not establish actual network photo loading or production motion performance.
+
+## Design 04 — Figma Motion–inspired interaction language (23 November 2026)
+
+**Inspiration, not imitation:** This edition interprets publicly visible ideas from [Figma for Motion](https://figmaformotion.com/)—Product Spotlight, Infinite Gallery, Magnetic Interaction, Seamless Transition and Scroll Stories—into bespoke work for Dhanushree Timbers. No template, proprietary asset, Figma source or Figma plugin file was copied.
+
+**New experience**
+
+- **Store / Product Spotlight:** a full-bleed three-scene photographic gallery with genuine previous/next controls, labelled chapters, an animated progress rail, image-mask transitions, and keyboard-operated arrows. The imagery is explicitly described as illustrative.
+- **Custom Work / Idea Studies:** three photographic directions—beds, dining, doors—changed by buttons with `aria-pressed` state. Each selection changes the visual and a practical enquiry prompt. It is *not* a photoreal finish configurator or 360-degree product model.
+- **Every principal page / Spatial index:** a quiet, right-edge chapter navigation that follows viewport position and actually scrolls to the selected section. Hidden on smaller screens to protect useful space.
+- **Editorial type:** headings reveal their words in sequence once scrolled into view; actual heading tags and emphasis remain in the document for screen readers and SEO.
+- **Page transitions:** native cross-document View Transitions where supported; navigation and back/forward history remain native and work in browsers without the feature.
+- **About:** original hand-authored timber grain linework progressively traces in response to scrolling.
+- **Contact:** three directly actionable routes—Call, WhatsApp and Visit—with motion integrated into the existing full-width cinematic page.
+- **Photography:** calibrated scroll-camera depth and pointer-responsive crops, without fake 3D rotation labels. Existing catalogue filters, links and WhatsApp enquiry form remain unchanged.
+
+**Files:** `assets/motion-studio.css` and `assets/motion-studio.js` loaded after the previous site styles and scripts on all seven pages. The new Store and Custom Work sections are authored directly into their respective HTML files. Source HTML—not `redesign_build.py`—remains the canonical version; running the old generator will remove these changes.
+
+**Motion and accessibility:** `prefers-reduced-motion` turns off animated transitions, opening shutters and kinetic text; all studio and Store controls continue to work. No JS is required for normal page links or for the static first scene, and the policy pages retain restrained text presentation.
+
+**Browser QA:** locally inline-rendered Chromium checks on all seven pages at 390, 768 and 1440 CSS px show zero horizontal overflow or JavaScript errors. Store’s next scene changes the active frame and live title; custom inspiration selection changes `aria-pressed` and its photograph; Store filters still work; reduced-motion controls remain usable. Browser tests do not establish live GitHub Pages availability, network image availability or physical-device frame-rate smoothness.
