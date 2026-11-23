@@ -85,3 +85,23 @@ An original, native CSS/JavaScript motion layer inspired by Figma Sites' publicl
 **Quality checks completed:** JavaScript syntax and static HTML/CSS/reference validation. Browser automation was blocked by the current execution environment, so a live visual-regression, GPU-performance or full accessibility check is **not** claimed. Verify GitHub Pages rendering on desktop and mobile before treating the site as production approved.
 
 Reference interaction patterns: https://help.figma.com/hc/en-us/articles/35895820755095-Figma-Sites-collection-Add-interactions-to-a-website
+
+## Design 03 — Entire Website, One Cinematic Art Direction (23 November 2026)
+
+All seven pages now use the homepage hero as the creative benchmark, without copying identical page layouts. The previous light, static interior sections have been replaced with a continuous dark timber / warm bronze / editorial photography system.
+
+- **Home:** dark cinematic product conveyor, pinned three-chapter image story, material close-ups and photographic custom-work sequence.
+- **Store:** full-bleed dining-led opening, dark photographic gallery with category filters, a full-height doors-and-joinery interlude and a photographic enquiry finish.
+- **Custom Work:** bedroom-led opening, warmly lit material section, full-height custom furniture scene and an accessible dark enquiry form that still sends through WhatsApp.
+- **Our Story:** woodcraft opening, material-led editorial typography, full-height timber photo story and local service information.
+- **Contact:** real full-width photographic composition rather than the former light split hero, an immersive local invitation and dark contact/address panels.
+- **Privacy Policy and Terms:** photographic, brand-consistent top sections while preserving quiet, high-contrast policy reading panels.
+- **Footer:** dark architectural background and original concentric joinery-inspired linework.
+
+**Motion that actually runs:** page-wide intersection-triggered image shutters, staggered film-copy reveals, scroll-responsive media depth, cinematic slideshow, material marquee, interactive collection, and a fixed desktop page-progress detail. Motion respects `prefers-reduced-motion` and never blocks links, forms or native browser navigation.
+
+**Implementation:** `assets/cinematic-site.css` and `assets/cinematic-site.js`, linked last on all pages. The existing `assets/site.js` and `assets/figma-motion.js` continue to power existing behaviour. The published HTML files are the source of truth; `redesign_build.py` remains as a historical generator and **must not be run over Design 03**, since it does not include the new film sections or styles.
+
+**Image accuracy:** Each full-height illustration is explicitly labelled as an illustrative reference, **not a verified Dhanushree project**. Higher resolution Pexels imagery is requested when available, with included local WebP backups. Product-specific actual photography would improve credibility further.
+
+**QA performed:** Chromium inline rendering checks for all seven pages at 390, 768 and 1440 px reported no horizontal overflow or JavaScript page errors; Store category filtering returned the expected three bedroom results. A full live-site/device/Lighthouse audit remains outstanding. The inline browser test does not establish actual network photo loading or production motion performance.
