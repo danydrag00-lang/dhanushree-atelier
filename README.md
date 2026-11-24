@@ -4,7 +4,7 @@ A completely new, independently authored Dhanushree Timbers website built for th
 
 **GitHub repo:** https://github.com/danydrag00-lang/dhanushree-atelier
 
-**Expected GitHub Pages URL:** https://danydrag00-lang.github.io/dhanushree-atelier/
+**Expected GitHub Pages URL:** https://dhanushreetimbers.in/
 
 ## Update: cinematic hero film and genuine timber-grain detail
 
