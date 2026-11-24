@@ -342,3 +342,6 @@ section h2 em {color:var(--cs-gold)}
 
 /* Local customer FAQ, visually consistent with the editorial site. */
 .local-faq{background:#eee4d5;color:#2a1b13}.local-faq-inner{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,6vw,95px);max-width:1400px;margin:auto}.local-faq h2{font-size:clamp(42px,5.5vw,80px);line-height:.98;margin:20px 0}.local-faq h2 em{color:#976233}.local-faq p{font-size:14px;line-height:1.7;max-width:480px}.local-faq details{border-top:1px solid #bca58c;padding:15px 0}.local-faq details:last-child{border-bottom:1px solid #bca58c}.local-faq summary{cursor:pointer;font-size:14px;font-weight:700;line-height:1.5}.local-faq summary:focus-visible{outline:2px solid #976233;outline-offset:4px}.local-faq details p{margin:12px 0 0;max-width:100%}.local-faq .under-link{display:inline-block;margin-top:18px}@media(max-width:760px){.local-faq-inner{grid-template-columns:1fr}}
+
+/* FAQ heading contrast on the light cream background. */
+.local-faq h2,.local-faq #local-faq-title{color:#2a1b13!important}.local-faq #local-faq-title em{color:#80532d!important}.local-faq .eyebrow,.local-faq summary,.local-faq .under-link{color:#2a1b13}.local-faq p{color:#463326}
