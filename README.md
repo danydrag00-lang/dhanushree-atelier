@@ -65,7 +65,7 @@ Automated Chromium layout and script checks were performed at 320, 360, 390, 768
 ### Business details
 
 - **Dhanushree Timbers & Furnitures**, Kuttalam / Mayiladuthurai, Tamil Nadu, India.
-- **Operating location:** Shakul Hameed Saw Mill, Anjaneyer Kovil Street, Kuttalam, Kuthalam Taluk, Mayiladuthurai District, Tamil Nadu 609801.
+- **Operating location:** Shakul Hameed Saw Mill, Anjaneyar Kovil Street, Kuttalam, Kuttalam Taluk, Mayiladuthurai District, Tamil Nadu 609801.
 - **Phone & WhatsApp:** +91 91593 90999
 - **Email:** reachdhanushreetimbers@gmail.com
 - **Instagram:** https://www.instagram.com/dhanushree_timbers/
