@@ -10,6 +10,10 @@
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
   if (reduced.matches || !("IntersectionObserver" in window)) return;
 
+  // Let initial content paint before optional third-party animation code loads.
+  if (document.readyState !== 'complete') await new Promise(resolve => window.addEventListener('load', resolve, {once:true}));
+  await new Promise(resolve => { if ('requestIdleCallback' in window) requestIdleCallback(resolve, {timeout:2500}); else setTimeout(resolve, 500); });
+
   // Import before hiding or adjusting any content. If the CDN is unavailable,
   // the complete site remains visible, navigable and functional.
   let motion;
