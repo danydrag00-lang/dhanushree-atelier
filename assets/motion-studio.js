@@ -14,7 +14,7 @@
   // Semantic headings remain in the DOM and their text remains selectable.
   // The subtle word sequence is progressive enhancement, not a font swap.
   const headings = [...document.querySelectorAll('main h2, .footer-flex h2')]
-    .filter(el => !el.closest('.legal-articles,.ms-theatre,.ms-studio,.local-faq'));
+    .filter(el => !el.closest('.legal-articles,.ms-theatre,.ms-studio,.local-faq,.store-tail'));
   if (isMotion() && 'IntersectionObserver' in window) {
     for (const title of headings) {
       // Save text nodes *before* replacing them, including those inside <em>.
