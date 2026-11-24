@@ -49,7 +49,7 @@ section h2 em {color:var(--cs-gold)}
 .inside-content>p{color:#e7d9c7;max-width:490px}
 .inside-index{color:#e5bd84;bottom:55px;right:clamp(24px,6vw,92px);letter-spacing:.2em}
 .store-hero .inside-photo{background-image:url('hero-dining.webp')!important;background-position:center 48%}
-.custom-hero .inside-photo{background-image:url('hero-bedroom.webp')!important;background-position:center 42%}
+.custom-hero .inside-photo{background-position:center 42%}
 .about-hero .inside-photo{background-image:url('hero-workshop.webp')!important;background-position:center 55%}
 
 /* HOME — every chapter lives in the same warm, cinematic atmosphere. */
@@ -267,7 +267,7 @@ section h2 em {color:var(--cs-gold)}
 /* High-resolution photographic sources first; small packaged WebP images remain
    offline fallbacks. Neither is presented as verified workshop/product imagery. */
 .store-hero .inside-photo {background-image:url('https://images.pexels.com/photos/7027772/pexels-photo-7027772.jpeg?auto=compress&cs=tinysrgb&w=1800'),url('hero-dining.webp')!important}
-.custom-hero .inside-photo{background-image:url('https://images.pexels.com/photos/5178074/pexels-photo-5178074.jpeg?auto=compress&cs=tinysrgb&w=1800'),url('hero-bedroom.webp')!important}
+.custom-hero .inside-photo{background-image:url('https://images.pexels.com/photos/6790071/pexels-photo-6790071.jpeg?auto=compress&cs=tinysrgb&w=1800'),url('hero-workshop.webp')!important}
 .about-hero .inside-photo{background-image:url('https://images.pexels.com/photos/14975208/pexels-photo-14975208.jpeg?auto=compress&cs=tinysrgb&w=1800'),url('hero-workshop.webp')!important}
 .legal-hero{background-image:linear-gradient(90deg,rgba(18,10,6,.95),rgba(18,10,6,.6)),url('https://images.pexels.com/photos/10099331/pexels-photo-10099331.jpeg?auto=compress&cs=tinysrgb&w=1800'),url('hero-doors.webp')}
 .footer{overflow:hidden;background:linear-gradient(105deg,rgba(16,9,6,.97),rgba(21,12,8,.92)),url('hero-doors.webp') right center/cover no-repeat}
