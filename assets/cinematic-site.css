@@ -125,7 +125,7 @@ section h2 em {color:var(--cs-gold)}
 .about-statement{background:linear-gradient(90deg,rgba(22,13,8,.98) 0%,rgba(27,17,10,.95) 60%,rgba(34,19,10,.75)),url('hero-dining.webp') 83% center/cover no-repeat;color:var(--cs-paper)}
 .about-editorial>div:last-child p{color:var(--cs-muted)}
 .about-values{background:#1b100b}
-.about-final{position:relative;background:linear-gradient(90deg,rgba(16,9,6,.9),rgba(16,9,6,.51)),url('hero-bedroom.webp') center 49%/cover no-repeat;color:var(--cs-paper);padding-top:clamp(130px,13vw,220px);padding-bottom:clamp(130px,13vw,220px)}
+.about-final{position:relative;background:linear-gradient(90deg,rgba(16,9,6,.58),rgba(16,9,6,.26),rgba(16,9,6,.48)),url('https://images.pexels.com/photos/5196650/pexels-photo-5196650.jpeg?auto=compress&cs=tinysrgb&w=2400') center 49%/cover no-repeat;color:var(--cs-paper);padding-top:clamp(130px,13vw,220px);padding-bottom:clamp(130px,13vw,220px)}
 .about-final>p{color:#eedcc6}
 
 /* CONTACT — the hero's full-bleed photographic composition extends to the last page. */
@@ -331,3 +331,6 @@ section h2 em {color:var(--cs-gold)}
 .footer::before{background:linear-gradient(180deg,rgba(15,11,8,.58),rgba(15,11,8,.83) 85%,rgba(15,11,8,.96))}
 @media(max-width:850px){.footer .footer-flex{grid-template-columns:1fr 1fr}.footer .footer-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}}
 @media(max-width:540px){.footer .footer-main{padding:22px 18px 16px}.footer .footer-flex{grid-template-columns:1fr;gap:10px;padding:8px 0 16px}.footer .footer-flex h2{font-size:40px}.footer .footer-flex h2 br{display:none}.footer .footer-flex h2 em::before{content:" "}.footer .footer-columns{padding-top:16px;gap:16px}.footer .footer-logo{width:64px}.footer .footer-bottom{padding:12px 18px;gap:8px}}
+
+/* Keep the community photograph visible while protecting text contrast. */
+.about-final h2,.about-final>p,.about-final>.eyebrow{text-shadow:0 2px 15px rgba(0,0,0,.85),0 1px 3px rgba(0,0,0,.85)}.about-final>.eyebrow{color:#f4e1c8}.about-final>p{color:#fff4e5}
