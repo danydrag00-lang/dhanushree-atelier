@@ -310,3 +310,5 @@ section h2 em {color:var(--cs-gold)}
 .footer .footer-flex{background:linear-gradient(90deg,rgba(20,14,10,.65),rgba(20,14,10,.18));border-color:rgba(230,195,154,.32);min-height:clamp(300px,38vw,500px);align-items:end}
 .footer .footer-main,.footer .footer-bottom{z-index:1}
 @media(prefers-reduced-motion:reduce){.footer .footer-film{display:none}.footer{background:#19130f url('hero-doors.webp') center/cover no-repeat}}
+
+.story-film .story-film-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:1;opacity:0;transition:opacity .6s ease}.story-film .story-film-video.is-playing{opacity:1}.story-film::after{z-index:1;background:linear-gradient(90deg,rgba(18,10,6,.8),rgba(18,10,6,.18) 80%)}.story-film .end-content{z-index:2}@media(prefers-reduced-motion:reduce){.story-film .story-film-video{display:none}}
