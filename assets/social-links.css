@@ -10,3 +10,10 @@
 .footer-columns .platform-icon{width:21px;height:21px;min-width:21px}
 .platform-link:focus-visible{outline:2px solid #E5BA80;outline-offset:4px}
 @media(prefers-reduced-motion:reduce){.platform-icon{transition:none}.platform-link:is(:hover,:focus-visible) .platform-icon{transform:none}}
+
+/* Keep social actions in a compact, wrapping footer row instead of stretching a contact column. */
+.footer .footer-socials{grid-column:1/-1!important;display:flex!important;flex-direction:row!important;flex-wrap:wrap;align-items:center!important;gap:8px 10px!important;min-width:0;max-width:100%}
+.footer .footer-socials .mini-head{flex:0 0 100%;margin:0 0 2px}
+.footer .footer-socials .platform-link{flex:0 1 auto;width:auto;max-width:100%;min-width:0;white-space:normal;overflow-wrap:anywhere;margin:0;transform:none}
+.footer .footer-columns>div{min-width:0}.footer .footer-email-address{max-width:100%;overflow-wrap:anywhere;white-space:normal}
+@media(max-width:540px){.footer .footer-socials{gap:6px!important}.footer .footer-socials .platform-link{padding:6px 9px;min-height:38px;font-size:11px}}
