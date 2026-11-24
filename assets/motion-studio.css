@@ -244,3 +244,6 @@ body :is(.product-photo:hover .product-bubble,.collection-tile:hover .tile-round
 body :is(a.top-enquire,a.mobile-contact,main a.under-link,a.ms-studio-link,.product-meta>a,a.platform-link,.ms-contact-routes>a):focus-visible{outline:2px solid #fff4e6;outline-offset:3px;box-shadow:0 0 0 6px #53351f}
 @media(max-width:650px){body :is(main a.under-link,a.ms-studio-link,.product-meta>a){padding:9px 13px;min-width:0}body .ms-contact-routes>a{padding:9px 10px}body a.platform-link{padding:7px 10px}}
 @media(prefers-reduced-motion:reduce){body :is(a.top-enquire,a.mobile-contact,main a.under-link,a.ms-studio-link,.product-meta>a,a.platform-link,.ms-contact-routes>a){transition:none!important;scale:1!important}}
+
+/* Keep the collection closing headline fully visible, including punctuation. */
+.store-tail h2{line-height:1.12;overflow:visible;max-width:100%;font-size:clamp(36px,7vw,116px);padding-block:.07em;overflow-wrap:normal;word-break:normal}.store-tail h2 em{display:inline;white-space:normal}.store-tail h2 .ms-word{overflow:visible}.store-tail h2 .ms-word-inner{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}@media(max-width:650px){.store-tail h2{font-size:clamp(36px,10vw,65px);line-height:1.14}}
