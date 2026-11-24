@@ -182,3 +182,4 @@
   }
   document.querySelectorAll('[data-year]').forEach(el=>el.textContent=String(new Date().getFullYear()));
 })();
+(()=>{const footer=document.querySelector('.footer');if(!footer||matchMedia('(prefers-reduced-motion: reduce)').matches)return;const video=document.createElement('video');video.className='footer-film';video.muted=true;video.defaultMuted=true;video.loop=true;video.playsInline=true;video.preload='none';video.setAttribute('aria-hidden','true');video.src='assets/footer-background.mp4';video.addEventListener('error',()=>video.remove(),{once:true});footer.prepend(video);if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting)video.play().catch(()=>{});else video.pause()}},{rootMargin:'200px'});observer.observe(footer)}else video.play().catch(()=>{});})();
