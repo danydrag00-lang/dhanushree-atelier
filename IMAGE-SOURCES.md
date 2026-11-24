@@ -27,7 +27,9 @@ The images are retrieved from Pexels' image CDN. The website uses real photograp
 | Traditional — swings | 10761024 |
 | Traditional — benches | 5552809 |
 | Custom work — wardrobe illustration | 21372016 |
-| Our Story — dining | 5196650 |
+| Our Story — timber yard (illustrative) | 12278574 |
+| Our Story — natural wood grain | 36081877 |
+| Our Story — furniture craftsmanship | 5974344 |
 
 Original page pattern: `https://www.pexels.com/photo/<PHOTO_ID>/`
 
