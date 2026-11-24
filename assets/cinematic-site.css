@@ -303,3 +303,10 @@ section h2 em {color:var(--cs-gold)}
 @media(max-width:850px){.footer .footer-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}.footer .footer-flex{grid-template-columns:1fr;align-items:start}.footer .footer-side{max-width:480px}}
 @media(max-width:480px){.footer .footer-main{padding:30px 18px}.footer .footer-flex{padding:26px 20px;gap:22px}.footer .footer-flex h2{font-size:clamp(43px,11vw,60px)}.footer .footer-columns{gap:30px 18px;padding-top:32px}.footer .footer-brand{font-size:60px}.footer .footer-columns a,.footer .footer-columns p{font-size:12px}.footer .footer-bottom{padding:20px 18px;flex-direction:column;align-items:flex-start}.footer .footer-bottom>div{flex-wrap:wrap;gap:15px}}
 @media(prefers-reduced-motion:reduce){.footer a,.footer .round-cta span{transition:none!important;transform:none!important}}
+
+/* Cinematic footer film */
+.footer .footer-film{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2;pointer-events:none}
+.footer::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(15,11,8,.25),rgba(15,11,8,.78) 55%,#19130f 100%);pointer-events:none}
+.footer .footer-flex{background:linear-gradient(90deg,rgba(20,14,10,.65),rgba(20,14,10,.18));border-color:rgba(230,195,154,.32);min-height:clamp(300px,38vw,500px);align-items:end}
+.footer .footer-main,.footer .footer-bottom{z-index:1}
+@media(prefers-reduced-motion:reduce){.footer .footer-film{display:none}.footer{background:#19130f url('hero-doors.webp') center/cover no-repeat}}
