@@ -133,3 +133,16 @@ All seven pages now use the homepage hero as the creative benchmark, without cop
 **Motion and accessibility:** `prefers-reduced-motion` turns off animated transitions, opening shutters and kinetic text; all studio and Store controls continue to work. No JS is required for normal page links or for the static first scene, and the policy pages retain restrained text presentation.
 
 **Browser QA:** locally inline-rendered Chromium checks on all seven pages at 390, 768 and 1440 CSS px show zero horizontal overflow or JavaScript errors. Store’s next scene changes the active frame and live title; custom inspiration selection changes `aria-pressed` and its photograph; Store filters still work; reduced-motion controls remain usable. Browser tests do not establish live GitHub Pages availability, network image availability or physical-device frame-rate smoothness.
+
+## Motion (formerly Framer Motion) — JavaScript enhancement (24 November 2026)
+
+The latest site keeps the existing standalone HTML/CSS/JavaScript architecture while loading the official **Motion for JavaScript** library (the framework-independent companion to Framer Motion) on all seven pages.
+
+- **Added:** `assets/framer-motion.js` as a native `type="module"` script on each page.
+- **Version:** the CDN import is pinned to `motion@14.11.1` via jsDelivr rather than an unbounded `latest` release.
+- **New details:** viewport-triggered staggered reveals for selected labels, product metadata, contact details and footer columns; subtle spring-driven CTA-arrow and timber-symbol hover gestures; scroll-linked footer-grain drift.
+- **Preserved:** the existing hero film, cinematic transitions, Figma-inspired scroll story, Store filters, mobile menu, form, SEO copy and GitHub Pages' no-build deployment. Existing effects retain ownership of their transforms to avoid clashing.
+- **Accessibility:** reduced-motion users receive the original static content. If the optional CDN script fails, all content remains visible and site actions remain functional.
+- **No React migration, npm installation, account, key or plugin subscription is necessary.**
+
+The module follows Motion's official static-HTML import guidance: https://motion.dev/docs/quick-start . The React-only package `framer-motion` is not installed because this is not a React website. This integration adds a real animation library, not a proprietary Framer editor plugin. Test the production URL with an active network connection to verify the CDN-backed enhancements.
