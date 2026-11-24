@@ -275,3 +275,31 @@ section h2 em {color:var(--cs-gold)}
 .footer-main,.footer-bottom{position:relative;z-index:1}
 .footer-columns{border-top-color:var(--cs-hair)}
 .footer-bottom{border-top-color:var(--cs-hair)}
+
+/* Atelier closing chapter — shared across every page. */
+.footer{position:relative;background:#19130f;color:#f5eadb;isolation:isolate;overflow:hidden}
+.footer::after,.footer .footer-grain{display:none}
+.footer .footer-main{max-width:1600px;margin:auto;padding:clamp(32px,5vw,76px) clamp(24px,6vw,100px) 35px}
+.footer .eyebrow{color:#d4b58e;font-size:10px;letter-spacing:.16em;margin:0 0 20px}
+.footer .footer-flex{position:relative;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.8fr);align-items:end;gap:28px;padding:clamp(28px,5vw,65px);border:1px solid #745b43;border-radius:4px;background:linear-gradient(90deg,rgba(24,16,11,.96),rgba(24,16,11,.76)),url('hero-doors.webp') center/cover;overflow:hidden}
+.footer .footer-flex h2{font-size:clamp(48px,6.5vw,106px);line-height:.88;letter-spacing:-.045em;margin:0;color:#fff4e5}
+.footer .footer-flex h2 em{color:#dbb78a}
+.footer .footer-side{margin:0;max-width:350px}
+.footer .footer-side p{font-size:14px;line-height:1.7;color:#eadaca;margin:0 0 20px}
+.footer .round-cta{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;background:#e6c39a;color:#22170e;border:1px solid #e6c39a;border-radius:100px;padding:13px 20px;font-size:12px;transition:background .25s,color .25s;max-width:100%}
+.footer .round-cta:hover{background:#fff1dd;color:#22170e}
+.footer .round-cta span{transition:transform .25s}
+.footer .round-cta:hover span{transform:translate(3px,-3px)}
+.footer .footer-columns{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.8fr) minmax(0,1.2fr) minmax(0,1.1fr);gap:clamp(20px,4vw,60px);border:0;margin-top:0;padding-top:46px}
+.footer .footer-columns>div:last-child{grid-column:auto}
+.footer .footer-brand{font-size:76px;color:#e3bb8a;line-height:.8}
+.footer .footer-brand small{color:#d6c3ae;letter-spacing:.12em;line-height:1.6}
+.footer .footer-columns .mini-head{color:#e3bb8a;font-size:10px;margin-bottom:5px;letter-spacing:.15em}
+.footer .footer-columns a,.footer .footer-columns p{color:#e2d4c4;font-size:13px;line-height:1.6;overflow-wrap:anywhere}
+.footer .footer-columns a{transition:color .25s,transform .25s}
+.footer .footer-columns a:hover{color:#fff;transform:translateX(4px)}
+.footer .footer-bottom{padding:22px clamp(24px,6vw,100px);border-top:1px solid #49392c;color:#d1beaa;font-size:11px;gap:16px;align-items:center}
+.footer a:focus-visible{outline:2px solid #e6c39a;outline-offset:4px}
+@media(max-width:850px){.footer .footer-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}.footer .footer-flex{grid-template-columns:1fr;align-items:start}.footer .footer-side{max-width:480px}}
+@media(max-width:480px){.footer .footer-main{padding:30px 18px}.footer .footer-flex{padding:26px 20px;gap:22px}.footer .footer-flex h2{font-size:clamp(43px,11vw,60px)}.footer .footer-columns{gap:30px 18px;padding-top:32px}.footer .footer-brand{font-size:60px}.footer .footer-columns a,.footer .footer-columns p{font-size:12px}.footer .footer-bottom{padding:20px 18px;flex-direction:column;align-items:flex-start}.footer .footer-bottom>div{flex-wrap:wrap;gap:15px}}
+@media(prefers-reduced-motion:reduce){.footer a,.footer .round-cta span{transition:none!important;transform:none!important}}
