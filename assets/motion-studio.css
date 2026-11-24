@@ -184,3 +184,34 @@
 }
 /* FAQ text must remain fully legible even before intersection observers run. */
 html.ms-motion .local-faq .ms-kinetic .ms-word-inner{opacity:1!important;filter:none!important;transform:none!important;transition:none!important;color:inherit!important}
+
+
+/* Liquid glass — site-wide controls, except the homepage's shiny hero CTAs.
+   CSS adaptation for the static website; opaque fallback protects legibility. */
+:root{--lg-dark:linear-gradient(155deg,rgba(116,83,56,.93),rgba(42,27,19,.97) 48%,rgba(68,44,29,.96));--lg-light:linear-gradient(155deg,rgba(255,250,239,.98),rgba(229,207,178,.96) 52%,rgba(249,231,205,.97));--lg-gold:linear-gradient(150deg,#f9e0ba,#d7a66d 52%,#f0ca97)}
+body :is(.btn-gold,.btn-outline,.btn-dark,.round-cta,.ms-theatre-cta,.filters button,.collection-arrows button,.ms-theatre-controls button,.menu-toggle,.fm-story-step,.ms-studio-options button,[data-film-toggle]):not(.cinema-hero .hero-buttons>a){
+  --lg-fill:var(--lg-dark);--lg-ink:#fff4e6;--lg-rim:rgba(248,219,182,.48);
+  color:var(--lg-ink);background:var(--lg-fill);border:1px solid var(--lg-rim);
+  border-radius:999px;box-shadow:inset 0 2px 2px rgba(255,255,255,.28),inset 0 -3px 5px rgba(0,0,0,.22),inset 2px 0 7px rgba(255,235,201,.12),0 5px 14px rgba(22,13,7,.19);
+  backdrop-filter:blur(14px) saturate(145%);-webkit-backdrop-filter:blur(14px) saturate(145%);
+  transition:box-shadow .28s ease,filter .28s ease,scale .22s ease,border-color .28s ease;
+}
+body :is(.btn-gold,.footer .round-cta,.collection-arrows button):not(.cinema-hero .hero-buttons>a){--lg-fill:var(--lg-light);--lg-ink:#291a10;--lg-rim:#b99770}
+body :is(.btn-gold,.footer .round-cta):not(.cinema-hero .hero-buttons>a){--lg-fill:var(--lg-gold)}
+body :is(.btn-gold,.btn-outline,.btn-dark,.round-cta,.ms-theatre-cta):not(.cinema-hero .hero-buttons>a){position:relative;isolation:isolate;overflow:hidden;min-height:48px;padding:13px 22px}
+body :is(.btn-gold,.btn-outline,.btn-dark,.round-cta,.ms-theatre-cta):not(.cinema-hero .hero-buttons>a)::after{
+  content:"";position:absolute;inset:2px;left:2px;width:auto;z-index:-1;border-radius:inherit;transform:none;pointer-events:none;
+  background:radial-gradient(ellipse at 20% 0%,rgba(255,255,255,.35),transparent 54%),linear-gradient(180deg,rgba(255,255,255,.12),transparent 45%,rgba(255,255,255,.06));
+  opacity:.9;transition:opacity .3s ease;
+}
+body :is(.btn-gold,.btn-outline,.btn-dark,.round-cta,.ms-theatre-cta,.filters button,.collection-arrows button,.ms-theatre-controls button,.menu-toggle,.fm-story-step,.ms-studio-options button,[data-film-toggle]):not(.cinema-hero .hero-buttons>a):hover{filter:brightness(1.07);box-shadow:inset 0 2px 4px rgba(255,255,255,.45),inset 0 -3px 5px rgba(0,0,0,.22),0 6px 18px rgba(31,18,9,.28);scale:1.025}
+body :is(.btn-gold,.btn-outline,.btn-dark,.round-cta,.ms-theatre-cta,.filters button,.collection-arrows button,.ms-theatre-controls button,.menu-toggle,.fm-story-step,.ms-studio-options button,[data-film-toggle]):not(.cinema-hero .hero-buttons>a):active{scale:.97}
+body :is(.filters button[aria-pressed=true],.fm-story-step.is-active,.ms-studio-options button[aria-pressed=true]){--lg-fill:var(--lg-gold);--lg-ink:#291a10;--lg-rim:#f1d5ad}
+body .fm-story-step.is-active span,body .ms-studio-options button[aria-pressed=true] small{color:#56371f}
+body .fm-story-steps,body .ms-studio-options{gap:8px}
+body .fm-story-step,body .ms-studio-options button{padding:12px 16px}
+body .ms-studio-options button small,body .fm-story-step span{color:#f6d7b4}
+body :is(.btn-gold,.btn-outline,.btn-dark,.round-cta,.ms-theatre-cta,.filters button,.collection-arrows button,.ms-theatre-controls button,.menu-toggle,.fm-story-step,.ms-studio-options button,[data-film-toggle]):not(.cinema-hero .hero-buttons>a):focus-visible{outline:2px solid #fff4e6;outline-offset:3px;box-shadow:0 0 0 6px #53351f}
+body button:disabled{cursor:not-allowed;filter:none;scale:1}
+@media(max-width:650px){body .fm-story-step{padding:8px 4px!important;border-radius:14px}body .ms-studio-options button{border-radius:22px;padding:12px}body :is(.btn-gold,.btn-outline,.btn-dark,.round-cta,.ms-theatre-cta):not(.cinema-hero .hero-buttons>a){padding:12px 16px}}
+@media(prefers-reduced-motion:reduce){body :is(.btn-gold,.btn-outline,.btn-dark,.round-cta,.ms-theatre-cta,.filters button,.collection-arrows button,.ms-theatre-controls button,.menu-toggle,.fm-story-step,.ms-studio-options button,[data-film-toggle]):not(.cinema-hero .hero-buttons>a){transition:none!important;scale:1!important}}
