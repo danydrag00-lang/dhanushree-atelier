@@ -7,7 +7,7 @@ The images are retrieved from Pexels' image CDN. The website uses real photograp
 | Home — dining | 7027772 |
 | Home — bedroom | 5178074 |
 | Home — door | 10099331 |
-| Home — wood panelling | 14975208 |
+| Home — natural timber grain (craft section) | 36299688 |
 | Bedroom — beds | 5178074 |
 | Bedroom — wardrobes | 6782465 |
 | Bedroom — dressing | 34544787 |

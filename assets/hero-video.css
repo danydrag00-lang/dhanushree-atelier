@@ -1,0 +1,43 @@
+/* Cinematic background video for Dhanushree Timbers homepage.
+   A genuine moving image, not a simulated 360° product viewer.
+   The photographic hero-scene remains as an accessible/loading fallback. */
+.page-home .hero-scenes{overflow:hidden}
+.page-home .hero-film{
+  position:absolute;inset:0;z-index:2;display:block;
+  width:100%;height:100%;object-fit:cover;object-position:center center;
+  opacity:0;pointer-events:none;
+  filter:saturate(.95) contrast(1.04);
+  transition:opacity 900ms cubic-bezier(.22,1,.36,1);
+}
+.page-home .hero-film.is-ready{opacity:1}
+.page-home .hero-film-controls{
+  display:inline-flex;align-items:center;gap:12px;min-width:0;
+  color:#f1dcc2;
+}
+.page-home .hero-film-controls button{
+  display:inline-grid;place-items:center;flex:none;
+  width:42px;height:42px;padding:0;
+  border:1px solid rgba(255,255,255,.57);border-radius:50%;
+  background:rgba(27,16,10,.42);color:#fff;
+  font:700 14px/1 var(--sans);
+  transition:transform .25s ease,color .25s ease,background .25s ease,border-color .25s ease;
+}
+.page-home .hero-film-controls button:is(:hover,:focus-visible){
+  transform:scale(1.06);background:var(--gold);border-color:var(--gold);color:#21140a;
+}
+.page-home .hero-film-controls button:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.page-home .hero-film-caption{
+  max-width:230px;font:600 10px/1.4 var(--sans);
+  letter-spacing:.07em;color:#f3dcc0;text-shadow:0 1px 8px rgba(0,0,0,.6);
+}
+.page-home .hero-film-fallback .hero-film-controls{display:none}
+@media(max-width:760px){
+  .page-home .hero-film{object-position:60% center}
+  .page-home .hero-film-controls{gap:8px}
+  .page-home .hero-film-controls button{width:36px;height:36px}
+  .page-home .hero-film-caption{font-size:9px;letter-spacing:.02em;max-width:145px}
+}
+@media(prefers-reduced-motion:reduce){
+  .page-home .hero-film{display:none!important}
+  .page-home .hero-film-controls{display:none!important}
+}

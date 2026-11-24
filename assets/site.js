@@ -56,7 +56,8 @@
 
   // Real cinematic hero sequence: slide crossfades, Ken Burns camera, timed progress.
   const hero=document.querySelector('[data-cinema-hero]');
-  if(hero){
+  // Dedicated film playback owns the hero when the supplied video is present.
+  if(hero && !hero.querySelector('[data-hero-video]')){
     const scenes=[...hero.querySelectorAll('.hero-scene')];
     const titles=['Solid timber dining · Concept imagery','Custom furniture · Design inspiration','Doors & frames · Design inspiration'];
     const current=hero.querySelector('[data-slide-current]');

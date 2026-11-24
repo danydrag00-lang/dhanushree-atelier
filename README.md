@@ -6,13 +6,21 @@ A completely new, independently authored Dhanushree Timbers website built for th
 
 **Expected GitHub Pages URL:** https://danydrag00-lang.github.io/dhanushree-atelier/
 
+## Update: cinematic hero film and genuine timber-grain detail
+
+- `assets/dhanushree-cinematic-hero.mp4` is an optimised copy of the supplied video; `assets/hero-video-poster.webp` provides a static fallback.
+- `assets/hero-video.css` and `assets/hero-video.js` handle cinematic background playback, pausing and accessibility.
+- The homepage craft section uses Pexels photo 36299688, a real natural wood-grain macro rather than an architectural wall panel.
+- Decorative “DH / MATERIAL STUDY”, “03 FRAMES”, “MATERIAL STUDY / 02”, “02 — THE MATERIAL”, and “BORN FROM THE MATERIAL” tags have been removed; existing story controls and actual heading remain.
+- The historical `redesign_build.py` generator is not the source for later motion components. Preserve those components when rebuilding pages.
+
 ## What changed in the second design
 
 The rejected wireframe-led design has been replaced with a warm, cinematic timber-first art direction: a photographic hero, chocolate-charcoal / parchment / brass palette, bespoke editorial serif typography, full-bleed composition, active hero controls, asymmetric product galleries and an architectural custom-work inquiry page.
 
 ### Real interactions and animations
 
-- **Cinematic hero**: 3-scene slideshow with timed 6.5-second image changes, crossfades, Ken Burns photography motion, scene title and progress indicator, previous / next and user-controlled pause / play.
+- **Cinematic hero:** user-supplied 15-second silent looping video (web-compressed to ~1.9 MB), with a pause/play control, poster/fallback still and reduced-motion/data-saver safeguards. The clip is presented as a concept, not evidence of Dhanushree's facilities.
 - **Text choreography**: split headline lines reveal on initial page load; secondary copy, CTA and kicker enter with staggered motion.
 - **Pointer-driven lighting**: restrained animated spotlight responds to pointer motion on desktop.
 - **Scroll-linked depth**: scroll bar, sticky navigation treatment and parallax photography sections powered by native `requestAnimationFrame`.
