@@ -11,6 +11,14 @@
   let inView = true;
   let manuallyPaused = false;
   let failed = false;
+  let started = false;
+  const source = video.querySelector("source[data-src]");
+  const start = () => {
+    if (started || reduce.matches || saveData || manuallyPaused || document.hidden || !inView) return;
+    started = true;
+    if (source) { source.src = source.dataset.src; video.load(); }
+    manage();
+  };
 
   video.muted = true;
   video.defaultMuted = true;
@@ -33,14 +41,13 @@
   };
 
   const manage = () => {
-    if (failed) return;
+    if (failed || !started) return;
     if (reduce.matches || saveData || document.hidden || !inView || manuallyPaused) {
       video.pause();
       if (reduce.matches || saveData) video.classList.remove('is-ready');
       updateButton();
       return;
     }
-    video.classList.add('is-ready');
     const result = video.play();
     if (result?.catch) result.catch(() => {
       video.pause();
@@ -59,18 +66,24 @@
   video.addEventListener('error', fallback);
   button?.addEventListener('click', () => {
     manuallyPaused = !video.paused ? true : false;
-    manage();
+    if (!started) start(); else manage();
   });
   if ('IntersectionObserver' in window && hero) {
     const io = new IntersectionObserver(entries => {
       inView = Boolean(entries[0]?.isIntersecting);
-      manage();
+      if (started) manage();
     }, {threshold:0.01});
     io.observe(hero);
   }
   document.addEventListener('visibilitychange', manage, {passive:true});
   reduce.addEventListener?.('change', manage);
   if (reduce.matches || saveData) { video.pause(); updateButton(); }
-  else if (video.readyState >= 2) manage();
-  else updateButton();
+  else {
+    updateButton();
+    const schedule = () => requestAnimationFrame(() => requestAnimationFrame(() => {
+      if ('requestIdleCallback' in window) requestIdleCallback(start, {timeout:1800});
+      else setTimeout(start, 350);
+    }));
+    if (document.readyState === 'complete') schedule(); else window.addEventListener('load', schedule, {once:true});
+  }
 })();
