@@ -17,3 +17,10 @@
 .footer .footer-socials .platform-link{flex:0 1 auto;width:auto;max-width:100%;min-width:0;white-space:normal;overflow-wrap:anywhere;margin:0;transform:none}
 .footer .footer-columns>div{min-width:0}.footer .footer-email-address{max-width:100%;overflow-wrap:anywhere;white-space:normal}
 @media(max-width:540px){.footer .footer-socials{gap:6px!important}.footer .footer-socials .platform-link{padding:6px 9px;min-height:38px;font-size:11px}}
+
+/* Compact icon-only footer social strip. Contact-page links are unaffected. */
+.footer .footer-socials{gap:10px!important;flex-wrap:wrap;align-items:center!important}
+.footer .footer-socials .mini-head{flex-basis:100%;margin-bottom:2px}
+.footer .footer-socials a.platform-link{display:inline-grid!important;place-items:center;flex:0 0 40px;width:40px;height:40px;min-height:40px;padding:0!important;gap:0;border-radius:50%;margin:0}
+.footer .footer-socials .platform-icon{width:23px;height:23px;min-width:23px;margin:0}
+@media(max-width:540px){.footer .footer-socials{gap:8px!important}.footer .footer-socials a.platform-link{flex-basis:38px;width:38px;height:38px;min-height:38px}}
