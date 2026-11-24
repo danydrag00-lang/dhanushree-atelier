@@ -334,3 +334,8 @@ section h2 em {color:var(--cs-gold)}
 
 /* Keep the community photograph visible while protecting text contrast. */
 .about-final h2,.about-final>p,.about-final>.eyebrow{text-shadow:0 2px 15px rgba(0,0,0,.85),0 1px 3px rgba(0,0,0,.85)}.about-final>.eyebrow{color:#f4e1c8}.about-final>p{color:#fff4e5}
+
+/* Contact photography: carry the opening image's warm walnut / amber grade into the second scene. */
+.cine-film--contact .cine-film-image img{filter:brightness(.75) saturate(.88) sepia(.22) contrast(1.04);object-position:center 56%}
+.cine-film--contact::after{background:linear-gradient(90deg,rgba(14,8,5,.95) 0%,rgba(17,10,7,.84) 30%,rgba(17,10,7,.4) 63%,rgba(17,10,7,.2)),linear-gradient(0deg,rgba(10,6,4,.6),transparent 36%)}
+@media(max-width:650px){.cine-film--contact::after{background:linear-gradient(90deg,rgba(14,8,5,.91),rgba(14,8,5,.56)),linear-gradient(0deg,rgba(14,8,5,.58),transparent 50%)}}
