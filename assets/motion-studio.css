@@ -215,3 +215,32 @@ body :is(.btn-gold,.btn-outline,.btn-dark,.round-cta,.ms-theatre-cta,.filters bu
 body button:disabled{cursor:not-allowed;filter:none;scale:1}
 @media(max-width:650px){body .fm-story-step{padding:8px 4px!important;border-radius:14px}body .ms-studio-options button{border-radius:22px;padding:12px}body :is(.btn-gold,.btn-outline,.btn-dark,.round-cta,.ms-theatre-cta):not(.cinema-hero .hero-buttons>a){padding:12px 16px}}
 @media(prefers-reduced-motion:reduce){body :is(.btn-gold,.btn-outline,.btn-dark,.round-cta,.ms-theatre-cta,.filters button,.collection-arrows button,.ms-theatre-controls button,.menu-toggle,.fm-story-step,.ms-studio-options button,[data-film-toggle]):not(.cinema-hero .hero-buttons>a){transition:none!important;scale:1!important}}
+
+
+/* Complete liquid-glass coverage: linked CTAs, product actions and contact routes.
+   Ordinary navigation, legal text links and skip links retain their semantics/style. */
+body :is(a.top-enquire,a.mobile-contact,main a.under-link,a.ms-studio-link,.product-meta>a,a.platform-link,.ms-contact-routes>a){
+  --lg-fill:var(--lg-dark);--lg-ink:#fff4e6;--lg-rim:#b89976;
+  color:var(--lg-ink);background:var(--lg-fill);border:1px solid var(--lg-rim);
+  border-radius:999px;box-shadow:inset 0 2px 3px #ffffff48,inset 0 -3px 5px #0004,0 4px 13px #24150930;
+  backdrop-filter:blur(14px) saturate(145%);-webkit-backdrop-filter:blur(14px) saturate(145%);
+  transition:box-shadow .28s ease,filter .28s ease,scale .22s ease;
+  text-decoration:none;box-sizing:border-box;
+}
+body :is(main a.under-link,a.ms-studio-link,.product-meta>a,a.platform-link,a.mobile-contact){display:inline-flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 17px;min-height:44px;max-width:100%;width:max-content;line-height:1.35}
+body a.top-enquire{padding:11px 18px}
+body .local-faq a.under-link{--lg-fill:var(--lg-light);--lg-ink:#291a10;--lg-rim:#b99770;display:inline-flex;color:var(--lg-ink)}
+body .contact-address a.under-link{margin:5px 0}
+body .product-meta>a{font-size:11px;margin-top:7px}
+body a.platform-link{justify-content:flex-start;padding:8px 13px;min-height:40px;font-size:11px}
+body .ms-contact-routes>a{padding:12px 15px;border-radius:18px;min-height:58px}
+body .ms-contact-routes>a small{color:#f6d7b4}
+body .ms-contact-routes>a :is(span,i){color:#fff4e6}
+body .ms-contact-routes{gap:8px}
+body :is(a.top-enquire,a.mobile-contact,main a.under-link,a.ms-studio-link,.product-meta>a,a.platform-link,.ms-contact-routes>a):hover{color:var(--lg-ink);filter:brightness(1.09);scale:1.025;box-shadow:inset 0 2px 4px #ffffff65,inset 0 -3px 5px #0004,0 6px 18px #24150940}
+body :is(a.top-enquire,a.mobile-contact,main a.under-link,a.ms-studio-link,.product-meta>a,a.platform-link,.ms-contact-routes>a):active{scale:.97}
+body :is(.product-bubble,.tile-round-arrow){background:var(--lg-light);color:#291a10;border:1px solid #b99770;box-shadow:inset 0 2px 3px #ffffff80,inset 0 -3px 5px #6d452526,0 4px 12px #0004;backdrop-filter:blur(12px)}
+body :is(.product-photo:hover .product-bubble,.collection-tile:hover .tile-round-arrow){background:var(--lg-gold);color:#291a10}
+body :is(a.top-enquire,a.mobile-contact,main a.under-link,a.ms-studio-link,.product-meta>a,a.platform-link,.ms-contact-routes>a):focus-visible{outline:2px solid #fff4e6;outline-offset:3px;box-shadow:0 0 0 6px #53351f}
+@media(max-width:650px){body :is(main a.under-link,a.ms-studio-link,.product-meta>a){padding:9px 13px;min-width:0}body .ms-contact-routes>a{padding:9px 10px}body a.platform-link{padding:7px 10px}}
+@media(prefers-reduced-motion:reduce){body :is(a.top-enquire,a.mobile-contact,main a.under-link,a.ms-studio-link,.product-meta>a,a.platform-link,.ms-contact-routes>a){transition:none!important;scale:1!important}}
