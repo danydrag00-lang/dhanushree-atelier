@@ -182,3 +182,5 @@
   .ms-theatre-image:not(.is-active),.ms-studio-shot:not(.is-active){opacity:0;clip-path:inset(0 0 0 100%)}
   .ms-theatre-image.is-active,.ms-studio-shot.is-active{opacity:1;clip-path:inset(0)}
 }
+/* FAQ text must remain fully legible even before intersection observers run. */
+html.ms-motion .local-faq .ms-kinetic .ms-word-inner{opacity:1!important;filter:none!important;transform:none!important;transition:none!important;color:inherit!important}
